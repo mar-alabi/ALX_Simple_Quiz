@@ -1,12 +1,19 @@
 // Implement arithmetic functions
-const operations = {
-  add: (number1, number2) => number1 + number2,
-  subtract: (number1, number2) => number1 - number2,
-  multiply: (number1, number2) => number1 * number2,
-  divide: (number1, number2) =>
-    number2 === 0 ? "Cannot divide by zero" : number1 / number2,
-};
-// select the DOM elements
+function add(number1, number2) {
+  return number1 + number2;
+}
+
+function subtract(number1, number2) {
+  return number1 - number2;
+}
+
+function multiply(number1, number2) {
+  return number1 * number2;
+}
+
+function divide(number1, number2) {
+  return number2 === 0 ? "Cannot divide by zero" : number1 / number2;
+}
 const input1 = document.getElementById("number1");
 const input2 = document.getElementById("number2");
 const addButton = document.getElementById("add");
@@ -15,23 +22,19 @@ const multiplyButton = document.getElementById("multiply");
 const divideButton = document.getElementById("divide");
 const resultSpan = document.getElementById("calculation-result");
 const clearButton = document.getElementById("clear-btn");
-
-// add event listeners to the buttons
 addButton.addEventListener("click", () => {
-  performCalculation(operations.add);
+  performCalculation(add);
 });
 subtractButton.addEventListener("click", () => {
-  performCalculation(operations.subtract);
+  performCalculation(subtract);
 });
 multiplyButton.addEventListener("click", () => {
-  performCalculation(operations.multiply);
+  performCalculation(multiply);
 });
 divideButton.addEventListener("click", () => {
-  performCalculation(operations.divide);
+  performCalculation(divide);
 });
-clearButton.addEventListener("click", clear);
-
-// function to perform the arithmetic operations
+clearButton.addEventListener("click", clearInputs);
 function performCalculation(operationFunction) {
   // TODO: Get number1 from input
   const number1 = parseFloat(input1.value) || 0;
@@ -43,9 +46,7 @@ function performCalculation(operationFunction) {
   // TODO: Display result in resultSpan
   resultSpan.textContent = result;
 }
-
-// clear all inputs and results
-function clear() {
+function clearInputs() {
   // TODO: Clear the input fields (not the numbers!)
   input1.value = "";
   input2.value = "";
